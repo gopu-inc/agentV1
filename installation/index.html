@@ -520,15 +520,20 @@
 </code></pre></div>
 
 <h2 id="telecharger-agentv1"><strong>Télécharger agentV1</strong><a class="headerlink" href="#telecharger-agentv1" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">AutoTokenizer</span><span class="p">,</span> <span class="n">AutoModelForCausalLM</span>
+
+<span class="n">tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">&quot;gopu-poss/agentV1&quot;</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">AutoModelForCausalLM</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
+    <span class="s2">&quot;gopu-poss/agentV1&quot;</span><span class="p">,</span>
+    <span class="n">device_map</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span>
+    <span class="n">torch_dtype</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span>
+<span class="p">)</span>
+<span class="n">Vérifier</span> <span class="n">l</span><span class="err">’</span><span class="n">installation</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
+</code></pre></div>
+
+<h1 id="verification"><em>verification</em>*<a class="headerlink" href="#verification" title="Permanent link">&para;</a></h1>
 <p>```python
-from transformers import AutoTokenizer, AutoModelForCausalLM</p>
-<p>tokenizer = AutoTokenizer.from_pretrained("gopu-poss/agentV1")
-model = AutoModelForCausalLM.from_pretrained(
-    "gopu-poss/agentV1",
-    device_map="auto",
-    torch_dtype="auto"
-)
-Vérifier l’installation
 print(model.config)</p>
 <hr />
 
