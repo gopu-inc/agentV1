@@ -8,13 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://gopu-inc.github.io/agentV1/installation/">
+        <link rel="canonical" href="https://gopu-inc.github.io/agentV1/faq/">
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../api/">
       
-      
-        <link rel="next" href="../api/">
       
       
         
@@ -25,7 +23,7 @@
     
     
       
-        <title>Installation - agentV1 Documentation</title>
+        <title>FAQ - agentV1 Documentation</title>
       
     
     
@@ -66,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#installation" class="md-skip">
+        <a href="#docsfaqmd" class="md-skip">
           Aller au contenu
         </a>
       
@@ -102,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Installation
+              FAQ
             
           </span>
         </div>
@@ -246,37 +244,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Installation
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
         
   
   
@@ -292,59 +263,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#prerequis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Prérequis
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation-des-dependances" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Installation des dépendances
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#telecharger-agentv1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Télécharger agentV1
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -407,10 +325,19 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../faq/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -426,6 +353,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -450,47 +378,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#prerequis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Prérequis
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation-des-dependances" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Installation des dépendances
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#telecharger-agentv1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Télécharger agentV1
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -509,35 +396,22 @@
   
 
 
-<h1 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h1>
-<h2 id="prerequis">Prérequis<a class="headerlink" href="#prerequis" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Python 3.8+</li>
-<li>PyTorch 2.0+</li>
-<li>Transformers 4.25+</li>
-<li>accelerate (optionnel)</li>
-</ul>
-<h2 id="installation-des-dependances">Installation des dépendances<a class="headerlink" href="#installation-des-dependances" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>torch<span class="w"> </span>transformers<span class="w"> </span>accelerate
-</code></pre></div>
-
-<h2 id="telecharger-agentv1"><strong>Télécharger agentV1</strong><a class="headerlink" href="#telecharger-agentv1" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">AutoTokenizer</span><span class="p">,</span> <span class="n">AutoModelForCausalLM</span>
-
-<span class="n">tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">&quot;gopu-poss/agentV1&quot;</span><span class="p">)</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">AutoModelForCausalLM</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
-    <span class="s2">&quot;gopu-poss/agentV1&quot;</span><span class="p">,</span>
-    <span class="n">device_map</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span>
-    <span class="n">torch_dtype</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span>
-<span class="p">)</span>
-<span class="n">Vérifier</span> <span class="n">l</span><span class="err">’</span><span class="n">installation</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
-</code></pre></div>
-
-<h1 id="verification"><em>verification</em>*<a class="headerlink" href="#verification" title="Permanent link">&para;</a></h1>
-<p>```python
-print(model.config)</p>
 <hr />
+<h1 id="docsfaqmd">📄 <code>docs/faq.md</code><a class="headerlink" href="#docsfaqmd" title="Permanent link">&para;</a></h1>
+<h1 id="foire-aux-questions">Foire Aux Questions<a class="headerlink" href="#foire-aux-questions" title="Permanent link">&para;</a></h1>
+<h3 id="le-modele-est-il-gratuit">Le modèle est-il gratuit ?<a class="headerlink" href="#le-modele-est-il-gratuit" title="Permanent link">&para;</a></h3>
+<p>Oui, licence MIT.</p>
+<h3 id="puis-je-lutiliser-commercialement">Puis-je l’utiliser commercialement ?<a class="headerlink" href="#puis-je-lutiliser-commercialement" title="Permanent link">&para;</a></h3>
+<p>Oui.</p>
+<h3 id="le-modele-supporte-quelles-langues">Le modèle supporte quelles langues ?<a class="headerlink" href="#le-modele-supporte-quelles-langues" title="Permanent link">&para;</a></h3>
+<p>Français &amp; Anglais.</p>
+<h3 id="quel-gpu-recommandez-vous">Quel GPU recommandez-vous ?<a class="headerlink" href="#quel-gpu-recommandez-vous" title="Permanent link">&para;</a></h3>
+<ul>
+<li>RTX 3060+ pour FP16</li>
+<li>CPU possible mais lent</li>
+</ul>
+<h3 id="ou-signaler-un-bug">Où signaler un bug ?<a class="headerlink" href="#ou-signaler-un-bug" title="Permanent link">&para;</a></h3>
+<p>Sur GitHub Issues.</p>
 
 
 
