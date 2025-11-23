@@ -25,4 +25,9 @@ model = AutoModelForCausalLM.from_pretrained(
 Vérifier l’installation
 print(model.config)
 
+```
+# *verification**
+```python
+print(model.config)
+
 ---
