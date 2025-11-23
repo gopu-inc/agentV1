@@ -11,7 +11,7 @@ device_map="cpu"
 torch_dtype=torch.float32
 ```
 ## Docker
-```Docker
+```Dockerfile
 FROM python:3.9-slim
 RUN pip install torch transformers accelerate
 COPY app.py /app/app.py
