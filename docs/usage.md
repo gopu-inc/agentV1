@@ -1,6 +1,7 @@
+![agent Banner](https://github.com/user-attachments/assets/fd16ab2d-71bd-4300-b495-73d573044325)
 
 
-# 📄 3. `docs/usage.md`
+# 📄 `usage.md`
 
 # Utilisation Rapide
 
