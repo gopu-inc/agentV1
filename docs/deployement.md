@@ -16,7 +16,8 @@ FROM python:3.9-slim
 RUN pip install torch transformers accelerate
 COPY app.py /app/app.py
 CMD ["python", "/app/app.py"]
-Déploiement sur serveur
-Uvicorn + FastAPI
-Docker compose
-Traefik / Nginx
+```
+# • Déploiement sur serveur
+# • Uvicorn + FastAPI
+# • Docker compose
+# • Traefik / Nginx
