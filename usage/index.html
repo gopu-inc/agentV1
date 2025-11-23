@@ -387,19 +387,39 @@
 <h1 id="3-docsusagemd">📄 3. <code>docs/usage.md</code><a class="headerlink" href="#3-docsusagemd" title="Permanent link">&para;</a></h1>
 <h1 id="utilisation-rapide">Utilisation Rapide<a class="headerlink" href="#utilisation-rapide" title="Permanent link">&para;</a></h1>
 <h2 id="generation-simple">Génération simple<a class="headerlink" href="#generation-simple" title="Permanent link">&para;</a></h2>
-<p>```python
-prompt = "Explique-moi l'IA générative"</p>
-<p>inputs = tokenizer(prompt, return_tensors="pt")</p>
-<p>outputs = model.generate(
-    **inputs,
-    max_new_tokens=200,
-    temperature=0.7
-)</p>
-<p>print(tokenizer.decode(outputs[0], skip_special_tokens=True))
-Mode conversation
-history = []
-question = "Bonjour, qui es-tu ?"</p>
-<p>response = agent.ask(question)
+<div class="codehilite"><pre><span></span><code><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Explique-moi l&#39;IA générative&quot;</span>
+
+<span class="n">inputs</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s2">&quot;pt&quot;</span><span class="p">)</span>
+
+<span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span>
+    <span class="o">**</span><span class="n">inputs</span><span class="p">,</span>
+    <span class="n">max_new_tokens</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">temperature</span><span class="o">=</span><span class="mf">0.7</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">skip_special_tokens</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="n">Mode</span> <span class="n">conversation</span>
+<span class="n">history</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">question</span> <span class="o">=</span> <span class="s2">&quot;Bonjour, qui es-tu ?&quot;</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">ask</span><span class="p">(</span><span class="n">question</span><span class="p">)</span>
+<span class="n">Paramètres</span> <span class="n">importants</span>
+<span class="n">Paramètre</span>   <span class="n">Description</span>
+<span class="n">max_new_tokens</span>  <span class="n">Nombre</span> <span class="n">de</span> <span class="n">tokens</span> <span class="n">générés</span>
+<span class="n">temperature</span> <span class="n">Créativité</span>
+<span class="n">top_p</span>   <span class="n">Filtrage</span> <span class="n">nucleus</span>
+<span class="n">do_sample</span>   <span class="n">Génération</span> <span class="n">aléatoire</span>
+<span class="n">Conseils</span> <span class="n">d</span><span class="err">’</span><span class="n">optimisation</span>
+<span class="n">Utiliser</span> <span class="n">torch</span><span class="o">.</span><span class="n">float16</span> <span class="n">sur</span> <span class="n">GPU</span>
+<span class="n">Limiter</span> <span class="n">max_new_tokens</span> <span class="n">sur</span> <span class="n">CPU</span>
+<span class="n">Préférer</span> <span class="n">do_sample</span><span class="o">=</span><span class="kc">True</span> <span class="n">pour</span> <span class="n">la</span> <span class="n">créativité</span>
+</code></pre></div>
+
+<h1 id="mode-conversation"><em>Mode conversation</em><a class="headerlink" href="#mode-conversation" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><code>history = []
+question = &quot;Bonjour, qui es-tu ?&quot;
+
+response = agent.ask(question)
 Paramètres importants
 Paramètre   Description
 max_new_tokens  Nombre de tokens générés
@@ -409,7 +429,10 @@ do_sample   Génération aléatoire
 Conseils d’optimisation
 Utiliser torch.float16 sur GPU
 Limiter max_new_tokens sur CPU
-Préférer do_sample=True pour la créativité</p>
+Préférer do_sample=True pour la créativité
+</code></pre></div>
+
+<hr />
 
 
 
