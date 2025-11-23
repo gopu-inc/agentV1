@@ -1,0 +1,2 @@
+agentV1 - Développé par Mauricio Mangituka pour gopuAI
+Modèle: Phi-3-mini-4k-instruct
