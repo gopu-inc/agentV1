@@ -8,8 +8,10 @@
       
       
       
-        <link rel="canonical" href="https://gopu-inc.github.io/agentV1/usage/">
+        <link rel="canonical" href="https://gopu-inc.github.io/agentV1/api/">
       
+      
+        <link rel="prev" href="../installation/">
       
       
       
@@ -21,7 +23,7 @@
     
     
       
-        <title>📄 3. docs/usage.md - agentV1 Documentation</title>
+        <title>API - agentV1 Documentation</title>
       
     
     
@@ -62,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#3-docsusagemd" class="md-skip">
+        <a href="#docsapimd" class="md-skip">
           Aller au contenu
         </a>
       
@@ -98,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              📄 3. docs/usage.md
+              API
             
           </span>
         </div>
@@ -269,10 +271,19 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../api/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -288,6 +299,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -384,55 +396,39 @@
   
 
 
-<h1 id="3-docsusagemd">📄 3. <code>docs/usage.md</code><a class="headerlink" href="#3-docsusagemd" title="Permanent link">&para;</a></h1>
-<h1 id="utilisation-rapide">Utilisation Rapide<a class="headerlink" href="#utilisation-rapide" title="Permanent link">&para;</a></h1>
-<h2 id="generation-simple">Génération simple<a class="headerlink" href="#generation-simple" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Explique-moi l&#39;IA générative&quot;</span>
-
-<span class="n">inputs</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s2">&quot;pt&quot;</span><span class="p">)</span>
-
-<span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span>
-    <span class="o">**</span><span class="n">inputs</span><span class="p">,</span>
-    <span class="n">max_new_tokens</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
-    <span class="n">temperature</span><span class="o">=</span><span class="mf">0.7</span>
-<span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">skip_special_tokens</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
-<span class="n">Mode</span> <span class="n">conversation</span>
-<span class="n">history</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">question</span> <span class="o">=</span> <span class="s2">&quot;Bonjour, qui es-tu ?&quot;</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">ask</span><span class="p">(</span><span class="n">question</span><span class="p">)</span>
-<span class="n">Paramètres</span> <span class="n">importants</span>
-<span class="n">Paramètre</span>   <span class="n">Description</span>
-<span class="n">max_new_tokens</span>  <span class="n">Nombre</span> <span class="n">de</span> <span class="n">tokens</span> <span class="n">générés</span>
-<span class="n">temperature</span> <span class="n">Créativité</span>
-<span class="n">top_p</span>   <span class="n">Filtrage</span> <span class="n">nucleus</span>
-<span class="n">do_sample</span>   <span class="n">Génération</span> <span class="n">aléatoire</span>
-<span class="n">Conseils</span> <span class="n">d</span><span class="err">’</span><span class="n">optimisation</span>
-<span class="n">Utiliser</span> <span class="n">torch</span><span class="o">.</span><span class="n">float16</span> <span class="n">sur</span> <span class="n">GPU</span>
-<span class="n">Limiter</span> <span class="n">max_new_tokens</span> <span class="n">sur</span> <span class="n">CPU</span>
-<span class="n">Préférer</span> <span class="n">do_sample</span><span class="o">=</span><span class="kc">True</span> <span class="n">pour</span> <span class="n">la</span> <span class="n">créativité</span>
-</code></pre></div>
-
-<h1 id="mode-conversation"><em>Mode conversation</em><a class="headerlink" href="#mode-conversation" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><code><span class="n">history</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">question</span> <span class="o">=</span> <span class="s2">&quot;Bonjour, qui es-tu ?&quot;</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">ask</span><span class="p">(</span><span class="n">question</span><span class="p">)</span>
-<span class="n">Paramètres</span> <span class="n">importants</span>
-<span class="n">Paramètre</span>   <span class="n">Description</span>
-<span class="n">max_new_tokens</span>  <span class="n">Nombre</span> <span class="n">de</span> <span class="n">tokens</span> <span class="n">générés</span>
-<span class="n">temperature</span> <span class="n">Créativité</span>
-<span class="n">top_p</span>   <span class="n">Filtrage</span> <span class="n">nucleus</span>
-<span class="n">do_sample</span>   <span class="n">Génération</span> <span class="n">aléatoire</span>
-<span class="n">Conseils</span> <span class="n">d</span><span class="err">’</span><span class="n">optimisation</span>
-<span class="n">Utiliser</span> <span class="n">torch</span><span class="o">.</span><span class="n">float16</span> <span class="n">sur</span> <span class="n">GPU</span>
-<span class="n">Limiter</span> <span class="n">max_new_tokens</span> <span class="n">sur</span> <span class="n">CPU</span>
-<span class="n">Préférer</span> <span class="n">do_sample</span><span class="o">=</span><span class="kc">True</span> <span class="n">pour</span> <span class="n">la</span> <span class="n">créativité</span>
-</code></pre></div>
-
-<hr />
+<h1 id="docsapimd"><code>docs/api.md</code><a class="headerlink" href="#docsapimd" title="Permanent link">&para;</a></h1>
+<h1 id="api-de-agentv1">API de agentV1<a class="headerlink" href="#api-de-agentv1" title="Permanent link">&para;</a></h1>
+<h2 id="classe-principale-agentv1">Classe principale : AgentV1<a class="headerlink" href="#classe-principale-agentv1" title="Permanent link">&para;</a></h2>
+<h3 id="initialisation">Initialisation<a class="headerlink" href="#initialisation" title="Permanent link">&para;</a></h3>
+<p>```python</p>
+<p>agent = AgentV1()
+Méthode : ask()
+Pose une question à l’agent.
+agent.ask(
+    question="Explique-moi Python.",
+    max_tokens=200,
+    temperature=0.7
+)
+Méthode : batch_ask()
+agent.batch_ask([
+    "Bonjour",
+    "Explique-moi les listes en Python"
+])
+Paramètres avancés
+generate()
+model.generate(
+    input_ids,
+    max_new_tokens=200,
+    temperature=0.7,
+    top_p=0.9,
+    repetition_penalty=1.1,
+    do_sample=True
+)
+Gestion GPU / CPU
+model = AutoModelForCausalLM.from_pretrained(
+    "gopu-poss/agentV1",
+    device_map="cuda"  # ou "cpu"
+)</p>
 
 
 
