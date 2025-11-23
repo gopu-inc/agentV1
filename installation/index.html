@@ -328,6 +328,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#telecharger-agentv1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Télécharger agentV1
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -465,6 +476,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#telecharger-agentv1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Télécharger agentV1
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -494,8 +516,21 @@
 <li>accelerate (optionnel)</li>
 </ul>
 <h2 id="installation-des-dependances">Installation des dépendances<a class="headerlink" href="#installation-des-dependances" title="Permanent link">&para;</a></h2>
-<p>```bash
-pip install torch transformers accelerate</p>
+<div class="codehilite"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>torch<span class="w"> </span>transformers<span class="w"> </span>accelerate
+</code></pre></div>
+
+<h2 id="telecharger-agentv1"><strong>Télécharger agentV1</strong><a class="headerlink" href="#telecharger-agentv1" title="Permanent link">&para;</a></h2>
+<p>```python
+from transformers import AutoTokenizer, AutoModelForCausalLM</p>
+<p>tokenizer = AutoTokenizer.from_pretrained("gopu-poss/agentV1")
+model = AutoModelForCausalLM.from_pretrained(
+    "gopu-poss/agentV1",
+    device_map="auto",
+    torch_dtype="auto"
+)
+Vérifier l’installation
+print(model.config)</p>
+<hr />
 
 
 
