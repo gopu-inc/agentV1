@@ -33,3 +33,22 @@ Conseils d’optimisation
 Utiliser torch.float16 sur GPU
 Limiter max_new_tokens sur CPU
 Préférer do_sample=True pour la créativité
+```
+# *Mode conversation*
+```
+history = []
+question = "Bonjour, qui es-tu ?"
+
+response = agent.ask(question)
+Paramètres importants
+Paramètre	Description
+max_new_tokens	Nombre de tokens générés
+temperature	Créativité
+top_p	Filtrage nucleus
+do_sample	Génération aléatoire
+Conseils d’optimisation
+Utiliser torch.float16 sur GPU
+Limiter max_new_tokens sur CPU
+Préférer do_sample=True pour la créativité
+```
+___
