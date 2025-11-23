@@ -1,117 +1,87 @@
----
-language:
-- fr
-- en
-license: mit
-tags:
-- text-generation
-- conversational
-- artificial-intelligence
-- gopuAI
-- agentV1
-pipeline_tag: text-generation
-widget:
-- text: Bonjour, qui es-tu ?
-  example_title: Présentation
-- text: Explique-moi l'IA générative
-  example_title: Explication IA
-- text: Comment programmer en Python ?
-  example_title: Aide programmation
-datasets:
-- unknown
-metrics:
-- accuracy
-model-index:
-- name: agentV1
-  results:
-  - task:
-      name: Text Generation
-      type: text-generation
-    dataset:
-      name: Custom Training Data
-      type: unknown
-    metrics:
-    - name: Accuracy
-      type: accuracy
-      value: 0
-base_model:
-- microsoft/Phi-3-mini-4k-instruct
-new_version: Gopu-poss/gopu-agent-2k-fdf
-library_name: transformers
----
-# 🤖 agentV1 - Intelligence Artificielle Avancée
 
-**agentV1** est un modèle d'intelligence artificielle de pointe développé par **Mauricio Mangituka** pour **gopuAI**. Basé sur Microsoft Phi-3-mini-4k-instruct, ce modèle combine performance optimale et efficacité mémoire.
+<img width="1024" height="1024" alt="IMG_6931" src="https://github.com/user-attachments/assets/d381e360-9daa-4423-a5c4-e6906b7f4afe" />
+
+
+# 🤖 agentV1 — Modèle d’Intelligence Artificielle Avancée
+
+**agentV1** est un modèle d’intelligence artificielle avancé développé par **Mauricio Mangituka** pour **gopuAI**, basé sur **Microsoft Phi-3-mini-4k-instruct**. Conçu pour être léger, performant et simple à intégrer, il combine une excellente qualité de génération et une efficacité mémoire remarquable.
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
-![Hugging Face](https://img.shields.io/badge/Hugging%20Face-gopu--poss%2Fagent-yellow)
+![HF Model](https://img.shields.io/badge/HuggingFace-gopu--poss%2FagentV1-yellow)
 ![GitHub](https://img.shields.io/badge/GitHub-gopu--inc%2FagentV1-black)
 
-## 🚀 Caractéristiques
+---
 
-- **🧠 Modèle de base**: Microsoft Phi-3-mini-4k-instruct
-- **💾 Taille compacte**: ~2-3 Go seulement
-- **⚡ Performances**: Excellentes capacités de raisonnement
-- **🌍 Multilingue**: Support du français et de l'anglais
-- **🔧 Optimisé**: Quantification et optimisation mémoire
+## 🚀 Caractéristiques Principales
 
-## 📋 Table des Matières
+* **🧠 Modèle de base** : Microsoft Phi-3-mini-4k-instruct
+* **💾 Taille compacte** : ~2–3 Go
+* **⚡ Performances élevées** : Bon raisonnement et génération fluide
+* **🌍 Multilingue** : Français 🇫🇷 & Anglais 🇬🇧
+* **🔧 Optimisé** : FP16, gestion mémoire améliorée, device_map automatique
+* **📦 Facile à intégrer** : Compatible Hugging Face Transformers
 
-- [Installation](#installation)
-- [Utilisation Rapide](#utilisation-rapide)
-- [API Complète](#api-complète)
-- [Exemples](#exemples)
-- [Architecture](#architecture)
-- [Déploiement](#déploiement)
-- [Contribuer](#contribuer)
-- [License](#license)
-- [Contact](#contact)
+---
+
+## 📚 Table des Matières
+
+* [Installation](#installation)
+* [Utilisation Rapide](#utilisation-rapide)
+* [Classe AgentV1 (API)](#classe-agentv1-api)
+* [Exemples](#exemples)
+* [Architecture](#architecture)
+* [Déploiement](#déploiement)
+* [Performances](#performances)
+* [Contribution](#contribution)
+* [License](#license)
+* [Contact](#contact)
+
+---
 
 ## 🛠 Installation
 
-### Prérequis
-- Python 3.8+
-- PyTorch 2.0+
-- Transformers 4.25+
+### ✔️ Prérequis
 
-### Installation des dépendances
+* Python **3.8+**
+* PyTorch **2.0+**
+* Transformers **4.25+**
+
+### 📦 Installation des dépendances
 
 ```bash
 pip install transformers torch accelerate
 ```
 
-Installation directe
+### 📥 Chargement du modèle
 
 ```python
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
-tokenizer = AutoTokenizer.from_pretrained("gopu-poss/agent")
+tokenizer = AutoTokenizer.from_pretrained("gopu-poss/agentV1")
 model = AutoModelForCausalLM.from_pretrained(
-    "gopu-poss/agent",
-    torch_dtype=torch.float16,
+    "gopu-poss/agentV1",
+    torch_dtype="auto",
     device_map="auto"
 )
 ```
 
-🚀 Utilisation Rapide
+---
 
-Code minimal
+## 🚀 Utilisation Rapide
 
 ```python
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 
-# Chargement du modèle
-tokenizer = AutoTokenizer.from_pretrained("gopu-poss/agent")
+tokenizer = AutoTokenizer.from_pretrained("gopu-poss/agentV1")
 model = AutoModelForCausalLM.from_pretrained(
-    "gopu-poss/agent",
+    "gopu-poss/agentV1",
     torch_dtype=torch.float16,
     device_map="auto"
 )
 
-# Génération de texte
-prompt = "Explique-moi comment fonctionne l'IA générative"
+prompt = "Explique-moi comment fonctionne l'IA générative."
 inputs = tokenizer(prompt, return_tensors="pt")
 
 with torch.no_grad():
@@ -122,28 +92,25 @@ with torch.no_grad():
         do_sample=True
     )
 
-response = tokenizer.decode(outputs[0], skip_special_tokens=True)
-print(response)
+print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 ```
 
-🔌 API Complète
+---
 
-Classe AgentV1
+## 🔌 Classe AgentV1 (API)
 
 ```python
 class AgentV1:
     def __init__(self):
-        self.tokenizer = AutoTokenizer.from_pretrained("gopu-poss/agent")
+        self.tokenizer = AutoTokenizer.from_pretrained("gopu-poss/agentV1")
         self.model = AutoModelForCausalLM.from_pretrained(
-            "gopu-poss/agent",
+            "gopu-poss/agentV1",
             torch_dtype=torch.float16,
             device_map="auto"
         )
     
     def ask(self, question, max_tokens=200, temperature=0.7):
-        """Pose une question à l'agent"""
         inputs = self.tokenizer(question, return_tensors="pt")
-        
         with torch.no_grad():
             outputs = self.model.generate(
                 **inputs,
@@ -152,95 +119,87 @@ class AgentV1:
                 do_sample=True,
                 pad_token_id=self.tokenizer.eos_token_id
             )
-        
         return self.tokenizer.decode(outputs[0], skip_special_tokens=True)
-    
+
     def batch_ask(self, questions, max_tokens=200):
-        """Pose plusieurs questions en lot"""
-        responses = []
-        for question in questions:
-            responses.append(self.ask(question, max_tokens))
-        return responses
+        return [self.ask(q, max_tokens) for q in questions]
 ```
 
-📚 Exemples
+---
 
-Conversation basique
+## 💬 Exemples d’Utilisation
+
+### Conversation simple
 
 ```python
 agent = AgentV1()
-
-# Question simple
-response = agent.ask("Bonjour, qui es-tu ?")
-print(response)
+print(agent.ask("Bonjour, qui es-tu ?"))
 ```
 
-Génération créative
+### Génération créative
 
 ```python
 story = agent.ask(
-    "Écris une courte histoire sur un robot qui apprend l'émotion",
+    "Écris une courte histoire sur un robot qui découvre l'amitié.",
     max_tokens=300,
     temperature=0.8
 )
 ```
 
-Assistance technique
+### Aide à la programmation
 
 ```python
-code_help = agent.ask(
-    "Explique-moi comment trier une liste en Python",
-    max_tokens=150
-)
+print(agent.ask("Explique-moi comment trier une liste en Python."))
 ```
 
-Analyse de texte
+### Analyse
 
 ```python
-analysis = agent.ask(
-    "Résume les avantages de l'IA générative en 3 points",
-    max_tokens=100
-)
+print(agent.ask("Résume les avantages de l'IA générative en 3 points."))
 ```
 
-🏗 Architecture
+---
 
-Modèle de Base
+## 🏗 Architecture
 
-· Architecture: Transformer-based
-· Paramètres: 3.8 milliards
-· Context Window: 4K tokens
-· Pré-entraînement: Texte multilingue
+### Modèle
 
-Optimisations
+* **Type** : Transformer
+* **Paramètres** : ~3.8B
+* **Context Window** : 4K tokens
+* **Pré-entraînement** : Données multilingues
 
-· Quantification: FP16 pour performance mémoire
-· Device Mapping: Chargement automatique GPU/CPU
-· Gestion mémoire: Optimisée pour usage efficace
+### Optimisations
 
-🌐 Déploiement
+* FP16
+* Device map automatique (CPU/GPU)
+* Mémoire optimisée (chargement adaptatif)
 
-Sur GPU local
+---
+
+## 🌐 Déploiement
+
+### Sur GPU
 
 ```python
 model = AutoModelForCausalLM.from_pretrained(
-    "gopu-poss/agent",
+    "gopu-poss/agentV1",
     torch_dtype=torch.float16,
     device_map="cuda:0"
 )
 ```
 
-Sur CPU
+### Sur CPU
 
 ```python
 model = AutoModelForCausalLM.from_pretrained(
-    "gopu-poss/agent",
+    "gopu-poss/agentV1",
     torch_dtype=torch.float32,
     device_map="cpu"
 )
 ```
 
-Avec Docker
+### Avec Docker
 
 ```dockerfile
 FROM python:3.9-slim
@@ -250,119 +209,69 @@ WORKDIR /app
 CMD ["python", "app.py"]
 ```
 
-📊 Performances
+---
 
-Métriques
+## 📊 Performances
 
-· Vitesse d'inférence: ~50-100 tokens/seconde sur GPU
-· Utilisation mémoire: ~3-4 Go en FP16
-· Latence: < 2 secondes pour 200 tokens
+* **Vitesse** : 50–100 tokens/s sur GPU
+* **RAM utilisée** : ~3–4 Go en FP16
+* **Latence moyenne** : < 2s pour 150–200 tokens
 
-Cas d'Usage Recommandés
+### Cas d’usage recommandés
 
-· ✅ Assistance conversationnelle
-· ✅ Génération de contenu
-· ✅ Réponse à questions
-· ✅ Analyse de texte
-· ✅ Aide à la programmation
-
-🤝 Contribuer
-
-Nous accueillons les contributions ! Voici comment participer :
-
-1. Fork le projet
-2. Clone votre fork
-3. Créez une branche (git checkout -b feature/AmazingFeature)
-4. Commit vos changements (git commit -m 'Add AmazingFeature')
-5. Push (git push origin feature/AmazingFeature)
-6. Ouvrez une Pull Request
-
-Standards de Code
-
-· Utilisez Black pour le formatage
-· Écrivez des docstrings complètes
-· Ajoutez des tests pour les nouvelles fonctionnalités
-
-📝 License
-
-Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
-
-👨‍💻 Créateur
-
-Mauricio Mangituka
-
-· GitHub: @gopu-inc
-· Hugging Face: gopu-poss
-· Email: mauricio@example.com
-
-🏢 Société
-
-gopuAI - Innovation en Intelligence Artificielle
-Développement de solutions IA accessibles et performantes
-
-🔗 Liens Importants
-
-· 🤗 Hugging Face: gopu-poss/agent
-· 🐙 GitHub: gopu-inc/agentV1
-· 📚 Documentation: Lien vers documentation
-· 🐛 Issues: GitHub Issues
-
-📞 Support
-
-· Questions techniques: Ouvrez une issue sur GitHub
-· Collaborations: Contactez-nous par email
-· Suggestions: Nous apprécions vos retours !
+✔️ Chatbot / conversation
+✔️ Génération de texte
+✔️ Assistance programmation
+✔️ Résumé / analyse
+✔️ Q&A général
 
 ---
 
-<div align="center">⭐ N'oubliez pas de donner une étoile au projet si vous l'aimez !
+## 🤝 Contribution
 
-Développé avec ❤️ par Mauricio Mangituka pour gopuAI
+1. Fork le projet
+2. Crée ta branche : `git checkout -b feature/AmazingFeature`
+3. Commit : `git commit -m "Add AmazingFeature"`
+4. Push : `git push origin feature/AmazingFeature`
+5. Ouvre une Pull Request
+
+### Standards
+
+* Formatage avec **Black**
+* Docstrings complètes
+* Tests pour les nouvelles features
+
+---
+
+## 📝 License
+
+Projet sous licence **MIT**.
+Voir le fichier `LICENSE`.
+
+---
+
+## 👤 Auteur
+
+**Mauricio Mangituka**
+
+* GitHub : [https://github.com/gopu-inc](https://github.com/gopu-inc)
+* Hugging Face : [https://huggingface.co/gopu-poss](https://huggingface.co/gopu-poss)
+* Email : [mauricio@example.com](mailto:mauricio@example.com)
+
+---
+
+## 🔗 Liens Utiles
+
+* 🤗 Modèle HF : gopu-poss/agentV1
+* 🐙 GitHub : gopu-inc/agentV1
+* 🐛 Issues : via GitHub
+* 📘 Documentation (à venir)
+
+---
+
+<div align="center">
+
+⭐ **Si ce projet vous plaît, pensez à laisser une étoile !**
+Développé avec ❤️ par *Mauricio Mangituka* pour **gopuAI**
 
 </div>
-```Fichier additionnel : requirements.txt
-
-```txt
-torch>=2.0.0
-transformers>=4.25.0
-accelerate>=0.20.0
-numpy>=1.21.0
-safetensors>=0.3.0
-```
-
-Fichier additionnel : setup.py
-
-```python
-from setuptools import setup, find_packages
-
-with open("README.md", "r", encoding="utf-8") as fh:
-    long_description = fh.read()
-
-setup(
-    name="agentv1",
-    version="1.0.0",
-    author="Mauricio Mangituka",
-    author_email="mauricio@example.com",
-    description="AgentV1 - Modèle IA avancé par gopuAI",
-    long_description=long_description,
-    long_description_content_type="text/markdown",
-    url="https://github.com/gopu-inc/agentV1",
-    packages=find_packages(),
-    classifiers=[
-        "Development Status :: 4 - Beta",
-        "Intended Audience :: Developers",
-        "License :: OSI Approved :: MIT License",
-        "Operating System :: OS Independent",
-        "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
-        "Programming Language :: Python :: 3.10",
-    ],
-    python_requires=">=3.8",
-    install_requires=[
-        "torch>=2.0.0",
-        "transformers>=4.25.0",
-        "accelerate>=0.20.0",
-    ],
-)
-```
