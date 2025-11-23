@@ -35,7 +35,7 @@ Limiter max_new_tokens sur CPU
 Préférer do_sample=True pour la créativité
 ```
 # *Mode conversation*
-```
+```python
 history = []
 question = "Bonjour, qui es-tu ?"
 
