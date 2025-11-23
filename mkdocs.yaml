@@ -1,0 +1,17 @@
+site_name: agentV1 Documentation
+site_url: https://gopu-inc.github.io/agentV1
+repo_url: https://github.com/gopu-inc/agentV1
+theme:
+  name: material
+  language: fr
+nav:
+  - Accueil: index.md
+  - Installation: installation.md
+  - API: api.md
+  - Exemples: examples.md
+  - FAQ: faq.md
+markdown_extensions:
+  - admonition
+  - codehilite
+  - toc:
+      permalink: true
