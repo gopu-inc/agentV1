@@ -436,15 +436,16 @@
 </code></pre></div>
 
 <h2 id="docker">Docker<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h2>
-<p>```Dockerfile
-FROM python:3.9-slim
-RUN pip install torch transformers accelerate
-COPY app.py /app/app.py
-CMD ["python", "/app/app.py"]
-Déploiement sur serveur
-Uvicorn + FastAPI
-Docker compose
-Traefik / Nginx</p>
+<div class="codehilite"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.9-slim</span>
+<span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>torch<span class="w"> </span>transformers<span class="w"> </span>accelerate
+<span class="k">COPY</span><span class="w"> </span>app.py<span class="w"> </span>/app/app.py
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;/app/app.py&quot;</span><span class="p">]</span>
+</code></pre></div>
+
+<h1 id="deploiement-sur-serveur">• Déploiement sur serveur<a class="headerlink" href="#deploiement-sur-serveur" title="Permanent link">&para;</a></h1>
+<h1 id="uvicorn-fastapi">• Uvicorn + FastAPI<a class="headerlink" href="#uvicorn-fastapi" title="Permanent link">&para;</a></h1>
+<h1 id="docker-compose">• Docker compose<a class="headerlink" href="#docker-compose" title="Permanent link">&para;</a></h1>
+<h1 id="traefik-nginx">• Traefik / Nginx<a class="headerlink" href="#traefik-nginx" title="Permanent link">&para;</a></h1>
 
 
 
