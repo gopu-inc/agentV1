@@ -3,7 +3,7 @@
 
 ---
 
-# 📄 `docs/faq.md`
+# 📄 `faq.md`
 
 
 # Foire Aux Questions
@@ -22,4 +22,4 @@ Français & Anglais.
 - CPU possible mais lent
 
 ### Où signaler un bug ?
-Sur GitHub Issues.
+[Sur GitHub Issues.](https://github.com/gopu-inc/agentV1/issues)
